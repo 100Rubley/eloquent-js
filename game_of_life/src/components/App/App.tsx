@@ -1,10 +1,11 @@
+import { Board } from '../Board/Board'
 import './App.css'
 
 function App() {
   return (
-    <>
-      hello World
-    </>
+    <div className='app_container'>
+      <Board />
+    </div>
   )
 }
 
