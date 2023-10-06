@@ -23,7 +23,6 @@ export const useGameStore = create<IGameStore>((set, get) => ({
     const { board } = get();
 
     board[y][x] = !board[y][x];
-    // test this place
-    set({ board: board })
+    set({ board: board });
   },
 }))
