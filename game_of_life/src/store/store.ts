@@ -6,6 +6,11 @@ import { COLS, ROWS } from '../constants';
 export const useGameStore = create<IGameStore>((set, get) => ({
   cells: [],
   board: makeEmptyBoard(),
+  interval: 100,
+  isRunning: false,
+  startGame: () => set({ isRunning: true }),
+  endGame: () => set({ isRunning: false }),
+  updateInterval: (newInterval) => set({ interval: Number.parseInt(newInterval.currentTarget.value, 10) }),
   makeCells: () => {
     const { cells, board } = get();
 

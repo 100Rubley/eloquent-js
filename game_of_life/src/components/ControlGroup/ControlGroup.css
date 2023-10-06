@@ -1,0 +1,13 @@
+.control_wrapper {
+  display: flex;
+  gap: 15px;
+}
+
+.input_wrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.input_wrapper input {
+  width: 10%;
+}
