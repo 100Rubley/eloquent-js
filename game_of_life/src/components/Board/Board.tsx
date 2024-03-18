@@ -6,7 +6,7 @@ import { useGameStore } from '../../store/store';
 import { Cell } from '../Cell/Cell';
 
 export const Board = () => {
-  const { flipCell, makeCells, cells } = useGameStore(state => state);
+  const { flipCell, makeCells, cells } = useGameStore();
   const boardRef = useRef<HTMLDivElement>(null);
 
   const handleClick = useCallback((e: MouseEvent<HTMLDivElement>) => {

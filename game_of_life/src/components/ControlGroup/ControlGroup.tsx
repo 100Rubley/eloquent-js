@@ -2,7 +2,7 @@ import { useGameStore } from '../../store/store'
 import './ControlGroup.css'
 
 export const ControlGroup = () => {
-  const { interval, updateInterval, isRunning, startGame, endGame } = useGameStore(state => state)
+  const { interval, updateInterval, isRunning, startGame, endGame } = useGameStore()
 
   return (
     <div className="control_wrapper">

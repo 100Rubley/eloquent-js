@@ -5,7 +5,7 @@ export interface ICell {
   y: number;
 }
 
-type TRow = boolean[];
+export type TRow = boolean[];
 
 export interface IGameStore {
   cells: ICell[],
@@ -17,4 +17,6 @@ export interface IGameStore {
   makeCells: () => ICell[],
   flipCell: (x: number, y: number) => void;
   updateInterval: (newInteval: ChangeEvent<HTMLInputElement>) => void;
+  runIteration: () => void;
+  timeoutHandler: number | null
 }
