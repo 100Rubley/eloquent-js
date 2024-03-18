@@ -2,7 +2,7 @@ import { useGameStore } from '../../store/store'
 import './ControlGroup.css'
 
 export const ControlGroup = () => {
-  const { interval, updateInterval, isRunning, startGame, endGame } = useGameStore()
+  const { interval, updateInterval, isRunning, startGame, endGame, handleClear, handleRandom } = useGameStore()
 
   return (
     <div className="control_wrapper">
@@ -17,6 +17,8 @@ export const ControlGroup = () => {
           <button className="button" onClick={endGame}>Закончить</button> :
           <button className="button" onClick={startGame}>Начать</button>
         }
+        <button className="button" onClick={handleClear}>Сбросить</button>
+        <button className="button" onClick={handleRandom}>Случайно</button>
       </div>
     </div>
   )

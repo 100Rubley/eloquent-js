@@ -27,7 +27,9 @@ export const useGameStore = create<IGameStore>((set, get) => ({
   },
   updateInterval: (newInterval) => set({ interval: Number.parseInt(newInterval.currentTarget.value, 10) }),
   makeCells: () => {
-    const { cells, board } = get();
+    const { board } = get();
+
+    const cells = [];
 
     for (let y = 0; y < ROWS; y++) {
       for (let x = 0; x < COLS; x++) {
@@ -37,7 +39,7 @@ export const useGameStore = create<IGameStore>((set, get) => ({
       }
     }
 
-    return cells;
+    set({ cells: cells });
   },
   flipCell: (x, y) => {
     const { board } = get();
@@ -70,7 +72,24 @@ export const useGameStore = create<IGameStore>((set, get) => ({
     const newTimoutHandler = window.setTimeout(() => {
       runIteration();
     }, interval)
+    makeCells();
 
-    set({ board: newBoard, cells: makeCells(), timeoutHandler: newTimoutHandler })
+    set({ board: newBoard, timeoutHandler: newTimoutHandler })
+  },
+  handleClear: () => {
+    const board = makeEmptyBoard();
+
+    set({ board: board, cells: [] })
+  },
+  handleRandom: () => {
+    const { makeCells, board } = get();
+    for (let y = 0; y < ROWS; y++) {
+      for (let x = 0; x < COLS; x++) {
+        board[y][x] = (Math.random() >= 0.5);
+      }
+    }
+    makeCells()
+    set({ board: board });
+
   }
 }))

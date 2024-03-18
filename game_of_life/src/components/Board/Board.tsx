@@ -4,6 +4,7 @@ import './Board.css'
 import { getElementOffset } from '../../store/helpers';
 import { useGameStore } from '../../store/store';
 import { Cell } from '../Cell/Cell';
+import { v4 } from 'uuid';
 
 export const Board = () => {
   const { flipCell, makeCells, cells } = useGameStore();
@@ -31,7 +32,7 @@ export const Board = () => {
       onClick={handleClick}
     >
       {cells.map(({ x, y }) => {
-        return <Cell x={x} y={y} key={`${x},${y}`} />
+        return <Cell x={x} y={y} key={v4()} />
       })}
     </div>
   )

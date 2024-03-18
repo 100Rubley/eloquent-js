@@ -14,9 +14,11 @@ export interface IGameStore {
   isRunning: boolean;
   startGame: () => void;
   endGame: () => void;
-  makeCells: () => ICell[],
+  makeCells: () => void;
   flipCell: (x: number, y: number) => void;
   updateInterval: (newInteval: ChangeEvent<HTMLInputElement>) => void;
   runIteration: () => void;
-  timeoutHandler: number | null
+  timeoutHandler: number | null;
+  handleClear: () => void;
+  handleRandom: () => void;
 }
